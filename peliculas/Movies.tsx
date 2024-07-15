@@ -4,8 +4,9 @@
   import MoviesHeader from './components/MoviesHeader';
   import MoviesBody from './components/MoviesBody';
   import MoviesFooter from './components/MoviesFooter';
+import BackgroundMovies from './components/Background';
 
-  const movies = [
+  const movies = [ 
     {
       id: '1',
       title: 'Jurassic Park',
@@ -36,6 +37,8 @@
   const MoviesScreen = () => {
     return (
       <View style={styles.container}>
+              <BackgroundMovies />
+
         <MoviesHeader />
         <MoviesBody movies={movies} />
         <MoviesFooter />

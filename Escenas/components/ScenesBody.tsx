@@ -42,7 +42,7 @@
     const styles = StyleSheet.create({
     container: {
         padding: 10,
-        backgroundColor:'black',
+        backgroundColor:'transparent',
         height:1000
     },
     });

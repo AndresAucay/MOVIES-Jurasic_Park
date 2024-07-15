@@ -1,10 +1,10 @@
 import React from 'react';
 import { Image, StyleSheet } from 'react-native';
 
-const BackgroundScenes = () => {
+const BackgroundCharacters = () => {
 return (
     <Image
-    source={{ uri: 'https://pm1.aminoapps.com/6319/f42372bfdb00041b99d05498295e3dcbe8e32963_hq.jpg' }}
+    source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCYz73SC7WXHwjl4OyM6xDHknmXKFFA3HTRA&s' }}
     style={styles.backgroundImage}
     />
 );
@@ -18,4 +18,4 @@ backgroundImage: {
 },
 });
 
-export default BackgroundScenes;
+export default BackgroundCharacters;

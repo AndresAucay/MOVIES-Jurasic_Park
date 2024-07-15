@@ -1,34 +1,26 @@
     // Movies/components/MovieCard.tsx
     import React from 'react';
     import { View, Text, StyleSheet, Button } from 'react-native';
-    import { useNavigation } from '@react-navigation/native';
-    import { NavigationProp } from '@react-navigation/native';
-    import { RootStackParamList } from '../../App';
 
-    interface MovieCardProps {
-    title: string;
-    director: string;
-    duration: string;
+    interface CharactersCardProps {
+    Name: string;
+    Cost: string;
+    Age: string;
     onEdit: () => void;
     onDelete: () => void;
     }
 
-    const MovieCard: React.FC<MovieCardProps> = ({ title, director, duration, onEdit, onDelete }) => {
-        const navigation = useNavigation<NavigationProp<RootStackParamList>>();
-
-        const handlePress = () => {
-            navigation.navigate('ScenesScreen'); 
-        };
+    const CharacterCard: React.FC<CharactersCardProps> = ({ Name, Cost, Age, onEdit, onDelete }) => {
     return (
         <View style={styles.container}>
-        <Text style={styles.title}>{title}</Text>
-        <Text style={styles.info}>Director: {director}</Text>
-        <Text style={styles.info}>Duración: {duration}</Text>
+        <Text style={styles.title}>{Name}</Text>
+        <Text style={styles.info}>Costo: {Cost} $</Text>
+        <Text style={styles.info}>Edad: {Age} años</Text>
         <View style={styles.buttonContainer}>
             <Button title="Editar" onPress={onEdit}color="gray" />
             <Button title="Eliminar" onPress={onDelete} color="gray" />
         </View>
-            <Button  title="Ver Escenas" onPress={handlePress} color={"gray"}/>
+        
         </View>
     );
     };
@@ -41,7 +33,7 @@
         borderRadius: 15,
         margin: 15,
         opacity: 0.8,
-        
+
     },
     title: {
         fontSize: 25,
@@ -58,8 +50,7 @@
         marginTop: 10,
         backgroundColor:'transparent',
         paddingHorizontal:30,
-        marginVertical:15,
     },
     });
 
-    export default MovieCard;
+    export default CharacterCard;

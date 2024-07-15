@@ -1,23 +1,21 @@
-    import React from 'react';
-    import { ImageBackground, StyleSheet } from 'react-native';
+import React from 'react';
+import { Image, StyleSheet } from 'react-native';
 
-    const BackgroundMovies = ({ children }) => {
-    return (
-        <ImageBackground
-        source={{ uri: '' }}
-        style={styles.backgroundImage}
-        >
-        {children}
-        </ImageBackground>
-    );
-    };
+const BackgroundMovies = () => {
+return (
+    <Image
+    source={{ uri: 'https://w0.peakpx.com/wallpaper/147/1018/HD-wallpaper-espinosaurio-bonito-dinosaurio-fondo-pantalla-park-world.jpg' }}
+    style={styles.backgroundImage}
+    />
+);
+};
 
-    const styles = StyleSheet.create({
-    backgroundImage: {
-        flex: 1,
-        resizeMode: 'cover',
-        justifyContent: 'center',
-    },
-    });
+const styles = StyleSheet.create({
+backgroundImage: {
+    position: 'absolute',
+    width: '100%',
+    height: '100%',
+},
+});
 
-    export default BackgroundMovies;
+export default BackgroundMovies;

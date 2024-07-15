@@ -4,6 +4,7 @@
     import ScenesHeader from './components/ScenesHeader';
     import ScenesFooter from './components/ScenesFooter';
     import ScenesBody from './components/ScenesBody';
+import BackgroundScenes from './components/Background';
 
     const scenes = [
         {
@@ -36,6 +37,7 @@
     const ScenesScreen = () => {
         return (
         <View style={styles.container}>
+            < BackgroundScenes/>
             <ScenesHeader />
             <ScenesBody scenes={scenes} />
             <ScenesFooter />
