@@ -5,7 +5,7 @@
     const MoviesHeader = () => {
     return (
         <View style={styles.container}>
-        <Text style={styles.title}>Peliculas</Text>
+        <Text style={styles.title}>PELICULAS</Text>
         </View>
     );
     };
@@ -14,17 +14,17 @@
     container: {
         paddingVertical: 0,
         paddingHorizontal: 5,
-        backgroundColor: 'white',
+        backgroundColor: 'black',
         alignItems: 'center',
-        height:35,
+        height:55,
         justifyContent:'center',
     },
     title: {
-        fontSize: 28,
+        fontSize: 22,
         alignItems:'center',
         backgroundColor:'transparent',
         width:100,
-        color:'black',
+        color:'white',
         justifyContent:'center'
 
     },

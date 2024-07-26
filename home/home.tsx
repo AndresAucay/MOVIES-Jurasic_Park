@@ -12,7 +12,7 @@ const Home = () => {
     <View style={styles.container}>
       <BackgroundImage />
       <View style={styles.textContainer}>
-        <Text style={styles.title}></Text>
+        <Text style={styles.title}>Hello</Text>
         <ContinueButton onPress={() => navigation.navigate('MoviesScreen')} />
       </View>
     </View>
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   title: {
-    fontSize: 24,
+    fontSize: 44,
     fontWeight: 'bold',
     color: 'white',
     marginBottom: 20,

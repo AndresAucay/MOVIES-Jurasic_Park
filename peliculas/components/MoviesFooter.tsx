@@ -25,13 +25,13 @@
 
     const styles = StyleSheet.create({
     container: {
-        backgroundColor: 'white',
-        paddingVertical: 10,
+        backgroundColor: 'black',
+        padding: 10,
         alignItems: 'center',
         height: 100,
     },
     button: {
-        backgroundColor: 'transparent',
+        backgroundColor: 'white',
         padding: 10,
         borderRadius: 10,
         display:'flex',
@@ -41,6 +41,9 @@
     image: {
         width: 80,
         height: 80,
+        resizeMode: 'contain',
+        
+    
     },
     });
 

@@ -1,32 +1,29 @@
-    // Movies/components/MoviesHeader.tsx
+    // ScenesHeader.tsx
     import React from 'react';
     import { View, Text, StyleSheet } from 'react-native';
 
-    const ScenesHeader = () => {
+    interface ScenesHeaderProps {
+    movieTitle: string;
+    }
+
+    const ScenesHeader: React.FC<ScenesHeaderProps> = ({ movieTitle }) => {
     return (
         <View style={styles.container}>
-        <Text style={styles.title}>Escenas</Text>
+        <Text style={styles.title}>Escenas de {movieTitle}</Text>
         </View>
     );
     };
 
     const styles = StyleSheet.create({
     container: {
-        paddingVertical: 0,
-        paddingHorizontal: 5,
-        backgroundColor: 'white',
-        alignItems: 'center',
-        height:35,
-        justifyContent:'center',
+        padding: 10,
+        backgroundColor: 'black',
     },
     title: {
-        fontSize: 28,
-        alignItems:'center',
-        backgroundColor:'transparent',
-        width:100,
-        color:'black',
-        justifyContent:'center'
-
+        fontSize: 24,
+        fontWeight: 'bold',
+        textAlign: 'center',
+        color:'white',
     },
     });
 

@@ -1,54 +1,56 @@
-    // Movies/Movies.tsx
-    import React from 'react';
-    import { View, StyleSheet } from 'react-native';
-    import ScenesHeader from './components/ScenesHeader';
+    // ScenesScreen.tsx
+    import React, { useEffect, useState } from 'react';
+    import { View, Text, StyleSheet } from 'react-native';
+    import ScenesBody from './components/ScenesBody'; 
+    import axios from 'axios';7
+    import BackgroundScenes from './components/Background'; 
     import ScenesFooter from './components/ScenesFooter';
-    import ScenesBody from './components/ScenesBody';
-import BackgroundScenes from './components/Background';
+    import ScenesHeader from './components/ScenesHeader';
+    interface ScenesScreenProps {
+        route: {
+            params: {
+                movieId: number;
+                movieTitle: string;
+            };
+        };
+    }
 
-    const scenes = [
-        {
-        id: '1',
-        title: ' Ecene 1',
-        director: 'Steven Spielberg',
-        duration: '2h 7m',
-        },
-        {
-        id: '2',
-        title: 'Escene 2',
-        director: 'Steven Spielberg',
-        duration: '2h 9m',
-        },
-        {
-        id: '3',
-        title: 'Scene 3',
-        director: 'Steven Spielberg',
-        duration: '2h 7m',
-        },
-        {
-        id: '4',
-        title: 'Scene 4',
-        director: 'Steven Spielberg',
-        duration: '2h 9m',
-        },
-        // Agrega más películas aquí
-    ];
+    const ScenesScreen: React.FC<ScenesScreenProps> = ({ route }) => {
+        const { movieId, movieTitle } = route.params;
+        const [scenes, setScenes] = useState<any[]>([]);
 
-    const ScenesScreen = () => {
+        useEffect(() => {
+            const fetchScenes = async () => {
+                try {
+                    const response = await axios.get(`http://10.0.1.133:8081/scenes?movieId=${movieId}`);
+                    setScenes(response.data);
+                } catch (error) {
+                    console.error('Error fetching scenes:', error);
+                }
+            };
+
+            fetchScenes();
+        }, [movieId]);
+
         return (
-        <View style={styles.container}>
-            < BackgroundScenes/>
-            <ScenesHeader />
-            <ScenesBody scenes={scenes} />
-            <ScenesFooter />
-        </View>
+            <View style={styles.container}>
+                <BackgroundScenes/>
+                <ScenesHeader movieTitle={movieTitle}/>
+                <ScenesBody scenes={scenes} />
+                <ScenesFooter/>
+            </View>
         );
     };
 
     const styles = StyleSheet.create({
         container: {
-        flex: 1,
-        backgroundColor: '#fff',
+            flex: 1,
+            height:2000,
+        
+        },
+        title: {
+            fontSize: 24,
+            fontWeight: 'bold',
         },
     });
 

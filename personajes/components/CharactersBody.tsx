@@ -1,50 +1,43 @@
-        // Movies/components/MoviesBody.tsx
-        import React from 'react';
-        import { View, ScrollView, StyleSheet } from 'react-native';
-        import CharacterCard from './CharactersCard';
-        
-        interface Character {
-        id: string;
-        name: string;
-        cost: string;
-        age: string;
-        }
+    import React from 'react';
+    import { View, StyleSheet, ScrollView } from 'react-native';
+    import CharacterCard from './CharactersCard';
 
-        interface CharacterBodyProps {
+    interface Character {
+        id: number;
+        nameCharacter: string; // Esto debe coincidir con la interfaz en CharactersScreen
+        cost: number;
+        actor: string;
+        sceneId: number;
+    }
+
+    interface CharactersBodyProps {
         characters: Character[];
-        }
+    }
 
-        const CharacterBody: React.FC<CharacterBodyProps> = ({ characters }) => {
-        const handleEdit = (characterId: string) => {
-            // Lógica para editar
-        };
-
-        const handleDelete = (characterId: string) => {
-            // Lógica para eliminar
-        };
-
+    const CharactersBody: React.FC<CharactersBodyProps> = ({ characters }) => {
         return (
             <ScrollView contentContainerStyle={styles.container}>
-            {characters.map((character) => (
-                <CharacterCard
-                key={character.id}
-                Name={character.name}
-                Cost={character.cost}
-                Age={character.age}
-                onEdit={() => handleEdit(character.id)}
-                onDelete={() => handleDelete(character.id)}
-                />
-            ))}
+                {characters.map((character) => (
+                    <CharacterCard
+                        key={character.id}
+                        id={character.id}
+                        name={character.nameCharacter} // Usa el nombre correcto aquí
+                        cost={character.cost}
+                        actor={character.actor}
+                        onEdit={() => console.log('Edit', character.id)}
+                        onDelete={() => console.log('Delete', character.id)}
+                    />
+                ))}
             </ScrollView>
         );
-        };
+    };
 
-        const styles = StyleSheet.create({
+    const styles = StyleSheet.create({
         container: {
             padding: 10,
-            backgroundColor:'transparent',
-            height:1000
+            backgroundColor: 'transparent',
+            height: 2000, // Ajustado para que se ajuste al contenido
         },
-        });
+    });
 
-        export default CharacterBody;
+    export default CharactersBody;
